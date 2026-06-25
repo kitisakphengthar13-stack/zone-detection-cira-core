@@ -1,0 +1,5 @@
+opencv-python
+ultralytics
+pyyaml
+pytest
+numpy

@@ -1,0 +1,88 @@
+# Python cache
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Test / pytest cache
+
+.pytest_cache/
+.tmp_pytest/
+.coverage
+htmlcov/
+
+# Virtual environments
+
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local config files
+
+config.yaml
+config.local.yaml
+*_local.yaml
+
+# Zone files created for a specific camera/video setup
+
+zones.json
+
+# Runtime outputs
+
+outputs/
+!outputs/.gitkeep
+
+# Runtime status file
+
+outputs/zone_status.json
+outputs/*.tmp
+
+# Recorded videos / input videos
+
+videos/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+
+# AI model files
+
+models/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.xml
+*.bin
+
+# Logs
+
+logs/
+*.log
+
+# CIRA Core local/project files
+
+*.npj
+
+# Temporary files
+
+tmp/
+temp/
+*.tmp
+*.bak
+*.old

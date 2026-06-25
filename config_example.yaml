@@ -1,0 +1,78 @@
+app:
+  name: "zone_safety_monitor"
+
+input:
+  type: "camera"   # camera | video
+
+camera:
+  index: 0
+  width: 1280
+  height: 720
+  fps: 30
+
+video:
+  path: 'video\'
+  loop: false
+
+display:
+  enabled: true
+  width: 1280
+  height: 720
+  window_name: "Zone Safety Monitor"
+  keep_aspect_ratio: true
+
+model:
+  path: 'models\'
+  device: "cuda"
+  conf_threshold: 0.5
+  iou_threshold: 0.5
+  person_class_id: 0
+
+tracker:
+  type: "bytetrack"
+  config: "bytetrack.yaml"
+  persist: true
+  max_missing_frames: 30
+
+zones:
+  file: "zones.json"
+  check_method: "bottom_center"
+  priority: ["DANGER", "WARNING", "SAFE"]
+
+buffer:
+  size: 10
+  confirm_rule: "per_track_10_same_frames"
+  write_only_when_confirmed: true
+
+empty_scene:
+  enabled: true
+  confirm_frames: 10
+  state: "SAFE"
+  machine_stop: 0
+
+output:
+  file: "outputs/zone_status.json"
+  write_mode: "overwrite"
+  atomic_write: true
+
+recording:
+  enabled: true
+  output_dir: "outputs/videos"
+  save_mode: "annotated"   # raw | annotated | both
+  filename_prefix: "zone_safety"
+  codec: "mp4v"
+  fps: 30
+  use_display_size: true
+  max_duration_sec: 0
+
+visualization:
+  draw_zone: true
+  draw_bbox: true
+  draw_track_id: true
+  draw_bottom_center: true
+  zone_alpha: 0.25
+  line_thickness: 2
+  bbox_thickness: 2
+  point_radius: 5
+  font_scale: 0.6
+  text_thickness: 2
