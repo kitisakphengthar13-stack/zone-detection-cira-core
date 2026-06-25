@@ -75,10 +75,6 @@ models/
 logs/
 *.log
 
-# CIRA Core local/project files
-
-*.npj
-
 # Temporary files
 
 tmp/
